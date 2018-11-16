@@ -128,13 +128,16 @@
             this.canvas = document.getElementById("myCanvas");
             this.background = new Image();
             this.background.src = "vaporwave.png";
+            this.background2 = new Image();
+            this.background2.src = "shaqholdsbill.png";
         }
 
         update()
         {
             let ctx = this.canvas.getContext("2d");
             ctx.clearRect(0, 0, 1000, 500);
-            ctx.drawImage(this.background,0,0, 1000, 500);
+            ctx.drawImage(this.background,0 - this.model.scrollPos/8,0, 1000, 500);
+            ctx.drawImage(this.background2,1000 - this.model.scrollPos/8,0, 1000, 500);
             for(let i = 0; i < this.model.sprites.length; i++)
                 this.model.sprites[i].draw(ctx, this.model.scrollPos);
         }
